@@ -1,0 +1,12 @@
+{
+  // "image": "public.ecr.aws/glue/aws-glue-libs:5",
+  // "image": "apache/spark:4.1.3-scala2.13-java17-python3-r-ubuntu",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "remoteUser": "root",
+  // ローカルのディレクトリ名に依存しないようマウント先を明示
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace/practice,type=bind",
+  "workspaceFolder": "/workspace/practice"
+}
