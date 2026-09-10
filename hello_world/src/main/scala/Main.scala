@@ -2,10 +2,23 @@ object Main extends App {
   println("Hi Kei! Hello, World!")
   // val e = Calc.markExam(7, 4, 9)
   // println(f"marExam: $e")
-  val e = Calc.pow(4, 2)
-  println(f"res: $e")
-  val e2 = Calc.pow(0, 2)
-  println(f"res: $e2")
+  // val e = Calc.pow(4, 2)
+  // println(f"res: $e")
+  // val e2 = Calc.pow(0, 2)
+  // println(f"res: $e2")
+  // val robot = new Robot("kei")
+  // println(robot.welcome("asami"))
+
+  val iRobot = new ItalianRobot("joey")
+  println(iRobot.welcome("kei"))
+
+  val eRobot = new EnglishRobot("chandler", "states")
+  println(eRobot.country)
+  println(eRobot.welcome("kei"))
+
+  val kei = new Studnet("kei", 30, "hoge")
+  println(kei.present())
+  println(kei.name)
 }
 
 object Calc {
