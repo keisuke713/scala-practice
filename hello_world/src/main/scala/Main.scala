@@ -1,7 +1,11 @@
 object Main extends App {
   println("Hi Kei! Hello, World!")
-  val e = Calc.markExam(7, 4, 9)
-  println(f"marExam: $e")
+  // val e = Calc.markExam(7, 4, 9)
+  // println(f"marExam: $e")
+  val e = Calc.pow(4, 2)
+  println(f"res: $e")
+  val e2 = Calc.pow(0, 2)
+  println(f"res: $e2")
 }
 
 object Calc {
@@ -30,5 +34,18 @@ object Calc {
       highest = mark
     }
     mark
+  }
+
+  def discount(price: Int) = if (price < 50) {price} else if (price < 100) { price * 0.9 } else {price * 0.85}
+
+  def pow(exponent: Int, base: Int = 2): Int = {
+    return pow(exponent, base, 1)
+  }
+
+  def pow(exponent: Int, base: Int, res: Int): Int = {
+    if (exponent < 1) {
+      return res
+    }
+    return pow(exponent - 1, base, res * base)
   }
 }
