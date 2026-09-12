@@ -19,11 +19,17 @@ object Main {
   def main(args: Array[String]): Unit = {
     println("hello from main object")
 
-    val baby = Person(new Person("keisuke", 30), new Person("asami", 30))
-    println(s"${baby.name}")
+    val c = new Cat()
+    c.eat("cheese")
+    c.move(1,2)
 
-    val p1 = Person("kei", 30)
-    val p2 = Person("yumemi", 25)
-    println(s"older is ${Person.isOlder(p1, p2).name}")
+    val d = new Dog("hana")
+    println(d.name)
+
+    println(USD.unit)
   }
+}
+
+object JPN extends Currency {
+  def unit = "yen"
 }
