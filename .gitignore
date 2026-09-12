@@ -2,3 +2,7 @@ hello_world/target/*
 hello_world/project/target/*
 package/target/*
 package/project/target/*
+project/*
+target/*
+timer/target/*
+timer/project/target/*
