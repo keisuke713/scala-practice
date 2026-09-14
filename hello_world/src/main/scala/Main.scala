@@ -8,13 +8,14 @@ object Main extends App {
     // }
     // println(s"currency: ${hoge}")
 
-    val value = 100
-    val price = value match {
-        case n: Int if n < 50 => n
-        case n: Int if n < 100 => n * 0.9
-        case n => n * 0.85
-    }
-    println(s"result: $price")
+    // val value = 100
+    // val price = value match {
+    //     case n: Int if n < 50 => n
+    //     case n: Int if n < 100 => n * 0.9
+    //     case n => n * 0.85
+    // }
+    // println(s"result: $price")
+    println(s"4 + 5 = ${MyCalculator.sum(4, 5)}")
 }
 
 sealed trait Currency
