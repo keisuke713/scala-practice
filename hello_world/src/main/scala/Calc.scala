@@ -16,12 +16,12 @@ object Calc {
     marksCount += 1
 
     if (lowest == highest) {
-      lowest = mark
-      highest = mark
+      lowest = mark.toDouble
+      highest = mark.toDouble
     } else if (lowest > mark) {
-      lowest = mark
+      lowest = mark.toDouble
     } else if (highest < mark) {
-      highest = mark
+      highest = mark.toDouble
     }
     mark
   }
