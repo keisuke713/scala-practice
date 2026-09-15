@@ -6,3 +6,5 @@ project/*
 target/*
 timer/target/*
 timer/project/target/*
+ping-app/target/*
+ping-app/project/target/*
