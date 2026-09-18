@@ -8,3 +8,5 @@ timer/target/*
 timer/project/target/*
 ping-app/target/*
 ping-app/project/target/*
+time_printer/target/*
+time_printer/project/target/*
