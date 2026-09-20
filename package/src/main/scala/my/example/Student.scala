@@ -9,10 +9,8 @@ case class Student(id: Long, name: String, tutor: Option[Professor]) {
     }
 
     def hasTutorWith(id: Long): Option[Student] = {
-        tutor.flatMap { t =>
-            if (t.id == id) Some(this)
-            else None
-        }
+        if (tutor.exists(_.id == id)) Some(this)
+        else None
     }
 }
 case class Professor(id: Long, name: String, assistant: Option[Assistant])
