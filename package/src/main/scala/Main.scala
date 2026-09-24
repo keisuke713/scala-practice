@@ -41,8 +41,16 @@ import my.example._
 
 object Main {
   def main(args: Array[String]): Unit = {
-    val nums = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-    print(s"res: ${filter(nums, Nil)}")
+    // val contacts = List(
+    //   Contact("kei", "nebashi", Nil, None, None),
+    //   Contact("miku", "nebashi", Nil, None, None),
+    //   Contact("yumemi", "nebashi", Nil, None, None),
+    // )
+    // print(s"$contacts")
+    val contact = Contact("kei", "nebashi", Nil, None, None)
+    print(s"$contact")
+    val car = Car("hoge", None, None)
+    print(s"$car")
   }
   def filter(nums: List[Int], res: List[Int]): List[Int] =
     nums match {
