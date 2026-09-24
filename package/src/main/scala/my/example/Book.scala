@@ -1,8 +1,7 @@
 package my.example
 
 case class Library() {
-    def search(title; String, author: String, ISBN: String): Book = {
-    }
+    def search(title: String, author: String, ISBN: String): Book = ???
 }
 
 case class Book(title: String, author: String, ISBN: String, totalPages: Int) {
