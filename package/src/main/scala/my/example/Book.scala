@@ -1,15 +1,11 @@
 package my.example
 
-case class Library() {
-    def search(title: String, author: String, ISBN: String): Book = ???
+
+
+case class Book(title: String, author: List[String], genre: Genre) {
 }
 
-case class Book(title: String, author: String, ISBN: String, totalPages: Int) {
-}
-
-object Book {
-    def unapply(b: Book): Option[(String, String, String)] = {
-        if (b.totalPages < 10) None
-        else Some((b.title, b.author, b.ISBN))
-    }
-}
+sealed trait Genre
+case object Action extends Genre
+case object Comic extends Genre
+case object Drama extends Genre

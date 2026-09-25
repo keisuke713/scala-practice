@@ -42,23 +42,29 @@ import my.example._
 object Main {
   def main(args: Array[String]): Unit = {
     // val contacts = List(
-    //   Contact("kei", "nebashi", Nil, None, None),
+    //   Contact("kei", "nebashi", Nil, Some("nebashi"), None),
     //   Contact("miku", "nebashi", Nil, None, None),
-    //   Contact("yumemi", "nebashi", Nil, None, None),
+    //   Contact("yumemi", "nebashi", Nil, Some("kato"), None),
     // )
-    // print(s"$contacts")
-    val contact = Contact("kei", "nebashi", Nil, None, None)
-    print(s"$contact")
-    val car = Car("hoge", None, None)
-    print(s"$car")
+    // println(s"$contacts")
+    // println(s"${contacts.map(_.company)}")
+    // println(s"${contacts.find(_.company.map(_.toLowerCase).contains("neba".toLowerCase)).getOrElse("none")}")
+    // println(s"${contacts.maxBy(_.name.length)}")
+    // println(s"${contacts.max}")
+    val books = List(
+      Book("keisuke", List("nebashi"), Action),
+      Book("miku", List("nebashi", "hoge"), Drama),
+      Book("yumemi", List("nebashi", "fuga"), Drama),
+    )
+    println(s"${books.filter(_.genre == Drama).flatMap(_.author).distinct}")
   }
-  def filter(nums: List[Int], res: List[Int]): List[Int] =
-    nums match {
-      case Nil => res
-      case head :: tail =>
-        if (head % 2 == 0) filter(tail, res :+ head)
-        else filter(tail, res)
-    }
+  // def filter(nums: List[Int], res: List[Int]): List[Int] =
+  //   nums match {
+  //     case Nil => res
+  //     case head :: tail =>
+  //       if (head % 2 == 0) filter(tail, res :+ head)
+  //       else filter(tail, res)
+  //   }
 }
 
 // object JPN extends Currency {
