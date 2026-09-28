@@ -2,7 +2,7 @@ name := "get-programming-with-scala-lesson33"
 
 version := "0.1"
 
-scalaVersion := "3.0.0"
+scalaVersion := "2.13.12"
 
 val CirceVersion = "0.14.1"
 val ScalaCsvVersion = "1.3.8"
