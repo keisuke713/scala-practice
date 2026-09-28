@@ -41,29 +41,36 @@ import my.example._
 
 object Main {
   def main(args: Array[String]): Unit = {
-    val contacts = List(
-      Contact("kei", "nebashi", Nil, Some("nebashi"), None),
-      Contact("miku", "nebashi", Nil, None, None),
-      Contact("yumemi", "nebashi", Nil, Some("kato"), None),
-      Contact("hoge", "", Nil, Some("kato"), None),
-      Contact("yumemi", "kato", Nil, Some("kato"), None)
-    )
-    println(s"$contacts")
-    println(s"${contacts.groupBy(_.surname.headOption.getOrElse(""))}")
+    // val contacts = List(
+    //   Contact("kei", "nebashi", Nil, Some("nebashi"), None),
+    //   Contact("miku", "nebashi", Nil, None, None),
+    //   Contact("yumemi", "nebashi", Nil, Some("kato"), None),
+    //   Contact("hoge", "", Nil, Some("kato"), None),
+    //   Contact("yumemi", "kato", Nil, Some("kato"), None)
+    // )
+    // println(s"$contacts")
+    // println(s"${contacts.groupBy(_.surname.headOption.getOrElse(""))}")
 
-    val exams = List(Exam(5, "1"), Exam(8, "2"), Exam(9, "5"), Exam(3, "3"))
-    println(s"${exams.sortBy(m => -m.score).take(2).map(_.studentID)}")
+    // val exams = List(Exam(5, "1"), Exam(8, "2"), Exam(9, "5"), Exam(3, "3"))
+    // println(s"${exams.sortBy(m => -m.score).take(2).map(_.studentID)}")
     // println(s"${contacts.map(_.company)}")
     // println(s"${contacts.find(_.company.map(_.toLowerCase).contains("neba".toLowerCase)).getOrElse("none")}")
     // println(s"${contacts.maxBy(_.name.length)}")
     // println(s"${contacts.max}")
-    // val books = List(
-    //   Book("keisuke", List("nebashi"), Action),
-    //   Book("miku", List("nebashi", "hoge"), Drama),
-    //   Book("yumemi", List("nebashi", "fuga"), Drama),
-    // )
-    // println(s"${books.filter(_.genre == Drama).flatMap(_.author).distinct}")
+    val books = Set(
+      Book("keisuke", List("nebashi"), Set(Action, Comic)),
+      Book("miku", List("kato", "hoge"), Set(Drama)),
+      Book("yumemi", List("nebashi", "fuga"), Set(Action)),
+    )
+    println(s"${books.filter(_.genre == Drama).flatMap(_.author)}")
+    println(s"${listGenres(books, "nebashi")}")
   }
+  def listGenres(books: Set[Book], author: String): Set[Genre] =
+    for {
+      book <- books
+      if book.author.exists(_ == author)
+      genre <- book.genre
+    } yield genre
   // def filter(nums: List[Int], res: List[Int]): List[Int] =
   //   nums match {
   //     case Nil => res

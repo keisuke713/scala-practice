@@ -2,7 +2,7 @@ package my.example
 
 
 
-case class Book(title: String, author: List[String], genre: Genre) {
+case class Book(title: String, author: List[String], genre: Set[Genre]) {
 }
 
 sealed trait Genre
