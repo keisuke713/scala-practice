@@ -31,16 +31,9 @@ object Main extends App {
 
     val capital = Map("tokyo" -> "japan", "rome" -> "italy", "london" -> "uk")
     val country = Map("japan" -> "asia", "italy" -> "europe")
-    val continent = capital.flatMap { case (capital, country1) =>
-        country.flatMap { case (country2, continent) =>
-            if (country1 == country2) Some(capital -> continent) else None
-        }
+    val continent = capital.map { case (capital, c) =>
+        (capital, country.getOrElse(c, "unknown"))
     }
-    // val continent =
-    //     for {
-    //         (capital, country1) <- capital
-    //         (country2, continent) <- country
-    //         if country1 == country2
-    //     } yield Some(capital, continent)
     println(continent)
+    println(s"${capital.maxBy { case (capital, _) => capital.length }}")
 }
