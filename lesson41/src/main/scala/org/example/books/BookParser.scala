@@ -11,7 +11,15 @@ class BookParser(filePath: String) {
 
   private val logger: Logger = LoggerFactory.getLogger(this.getClass)
 
-  val books: List[Book] = ???
+  val books: List[Book] = {
+    loadCSVFile(filePath).flatMap { rowData =>
+      Book.parse(rowData) match {
+        case Success(book) => Some(book)
+        case Failure(exception) =>
+          logger.warn("Skipping book: Unable to parse row because" + s"of ${exception.getMessage} - row was $rowData")
+          None
+      }}
+  }
 
   private def loadCSVFile(path: String): List[Map[String, String]] = {
     logger.info(s"Processing file $path...")
